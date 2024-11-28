@@ -6,35 +6,19 @@ export const ChessList = () => {
     const [isFetchPending, setFetchPending] = useState(false);
 
     useEffect(() => {
-        const fetchData = async () => {
-        setPending(true);
-        try {
-            const valasz = await axios.get("https://chess.sulla.hu/chess");
-            setChess(valasz.data);
-        }
-
-        catch(error){
-            console.log("Hiba a lekérdezésben:", error);
-        }
-
-        finally{
-            setPending(false);
-        };
-      
-    }
-    fetchData();
-        //fetch('https://chess.sulla.hu/chess') 
-         //.then((valasz) => valasz.json())
-         //.then((sakkosok) => setChess(sakkosok))
-         //.catch((hiba) => console.log(hiba))
-         //.finally(() => setFetchPending(false));
+        setFetchPending(true);
+        fetch('https://chess.sulla.hu/chess')
+         .then((valasz) => valasz.json())
+         .then((sakkosok) => setChess(sakkosok))
+         .catch((hiba) => console.log(hiba))
+         .finally(() => setFetchPending(false));
     }, []);
 
     return (
         <div className="container mt-5">
-            <h2>Sakkozók</h2>
+            <h2 className="text-center">Sakkozók</h2>
             {isFetchPending ? (
-                <div className="spinner-border text danger"></div>
+                <div className="spinner-border"></div>
             ) : (
                 <div className="row row-cols-1 row-cols-md-3 g-2">
                     {chesses.map((chess, index)=> (
