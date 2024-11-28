@@ -20,8 +20,7 @@ export const ChessList = () => {
         finally{
             setPending(false);
         };
-
-       
+      
     }
     fetchData();
         //fetch('https://chess.sulla.hu/chess') 
