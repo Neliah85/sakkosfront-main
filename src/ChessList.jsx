@@ -21,8 +21,9 @@ export const ChessList = () => {
             setPending(false);
         };
 
-        fetchData();
+       
     }
+    fetchData();
         //fetch('https://chess.sulla.hu/chess') 
          //.then((valasz) => valasz.json())
          //.then((sakkosok) => setChess(sakkosok))
