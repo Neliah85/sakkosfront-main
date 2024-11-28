@@ -23,7 +23,7 @@ export const ChessList = () => {
 
         fetchData();
     }
-        //fetch('https://chess.sulla.hu/chess')
+        //fetch('https://chess.sulla.hu/chess') 
          //.then((valasz) => valasz.json())
          //.then((sakkosok) => setChess(sakkosok))
          //.catch((hiba) => console.log(hiba))
